@@ -21,14 +21,15 @@ public class BankClient1{
         send = new PrintWriter(BankClientSocket.getOutputStream(), true);
         input = new BufferedReader(new InputStreamReader(System.in));
 
+        //Code logic adapted from ActionServer code
         while(communicating){
             String fromClient = input.readLine();
-            if (fromClient != null){
+            if (fromClient != null) {
                 System.out.println("Sending message");
                 send.println(fromClient);
             }
-            String fromServer = received.readLine();
-            System.out.println("Message receives from server");
+            System.out.println(received.readLine());
+            System.out.println("Message received from server");
         }
     }
 }

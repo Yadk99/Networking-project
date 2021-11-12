@@ -13,7 +13,7 @@ public class BankServer {
         System.out.println(BankServerName + " has started on Port " + BankServerSocket.getLocalPort());
 
         while(listen){
-            new BankServerThread(BankServerSocket.accept(), "User Client 1", SharedDataStateObject).start();
+            new BankServerThread(BankServerSocket.accept(), "Bank Client 1", SharedDataStateObject).start();
         }
     }
 }
