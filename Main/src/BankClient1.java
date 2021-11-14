@@ -15,7 +15,7 @@ public class BankClient1{
         boolean communicating = false;
 
         BankClientSocket = new Socket(BankClientName, BankSocketNumber);
-        System.out.println(BankClientID + " initialised connection to server");
+        System.out.println(TimeStamp.getTime() + BankClientID + " initialised connection to server");
         communicating = true;
         received = new BufferedReader(new InputStreamReader(BankClientSocket.getInputStream()));
         send = new PrintWriter(BankClientSocket.getOutputStream(), true);
@@ -25,11 +25,11 @@ public class BankClient1{
         while(communicating){
             String fromClient = input.readLine();
             if (fromClient != null) {
-                System.out.println("Sending message");
+                System.out.println(TimeStamp.getTime() +  "Sending message");
                 send.println(fromClient);
             }
             System.out.println(received.readLine());
-            System.out.println("Message received from server");
+            System.out.println(TimeStamp.getTime() +  "Transaction complete");
         }
     }
 }

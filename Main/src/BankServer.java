@@ -10,7 +10,7 @@ public class BankServer {
         SharedDataState SharedDataStateObject = new SharedDataState();
 
         ServerSocket BankServerSocket = new ServerSocket(BankServerSocketNumber);
-        System.out.println(BankServerName + " has started on Port " + BankServerSocket.getLocalPort());
+        System.out.println(TimeStamp.getTime() + BankServerName + " has started on Port " + BankServerSocket.getLocalPort());
 
         while(listen){
             new BankServerThread(BankServerSocket.accept(), "Bank Client 1", SharedDataStateObject).start();

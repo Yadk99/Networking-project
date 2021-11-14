@@ -18,7 +18,7 @@ public class BankServerThread extends Thread {
 
     public void run() {
         try {
-            System.out.println(currentThreadName + " is running");
+            System.out.println(TimeStamp.getTime() +  currentThreadName + " is running");
             PrintWriter out = new PrintWriter(currentBankSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(currentBankSocket.getInputStream()));
             String inputLine, outputLine;
