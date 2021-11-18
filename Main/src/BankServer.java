@@ -1,6 +1,10 @@
 import java.io.IOException;
 import java.net.ServerSocket;
 
+/*
+    Professor Simon Taylor
+    Adapted from ActionServer code
+     */
 public class BankServer {
     public static void main(String[] arg) throws IOException {
         String BankServerName = "WBA";
@@ -14,6 +18,8 @@ public class BankServer {
 
         while(listen){
             new BankServerThread(BankServerSocket.accept(), "Bank Client 1", SharedDataStateObject).start();
+            new BankServerThread(BankServerSocket.accept(), "Bank Client 2", SharedDataStateObject).start();
+            new BankServerThread(BankServerSocket.accept(), "Bank Client 3", SharedDataStateObject).start();
         }
     }
 }

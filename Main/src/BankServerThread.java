@@ -28,6 +28,7 @@ public class BankServerThread extends Thread {
                 outputLine = currentSharedDataStateObject.processInput(currentThreadName, inputLine);
                 out.println(outputLine);
                 currentSharedDataStateObject.releaseLock();
+                System.out.println(TimeStamp.getTime() + "Transaction complete");
             }
         }
         catch (IOException | InterruptedException e) {
