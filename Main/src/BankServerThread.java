@@ -24,10 +24,10 @@ public class BankServerThread extends Thread {
             String inputLine, outputLine;
 
             while ((inputLine = in.readLine()) != null){
-                currentSharedDataStateObject.acquireLock();
+                currentSharedDataStateObject.acquireLock(currentThreadName);
                 outputLine = currentSharedDataStateObject.processInput(currentThreadName, inputLine);
                 out.println(outputLine);
-                currentSharedDataStateObject.releaseLock();
+                currentSharedDataStateObject.releaseLock(currentThreadName);
                 System.out.println(TimeStamp.getTime() + "Transaction complete");
             }
         }

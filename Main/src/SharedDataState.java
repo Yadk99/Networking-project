@@ -12,8 +12,7 @@ public class SharedDataState {
         ClientAccounts.put("Bank Client 3", 1000);
     }
 
-    public synchronized void acquireLock() throws InterruptedException {
-        String currentThread = Thread.currentThread().getName();
+    public synchronized void acquireLock(String currentThread) throws InterruptedException {
         System.out.println(TimeStamp.getTime() +  currentThread + " is trying to get a lock");
         while(accessing){
             System.out.println(TimeStamp.getTime() +  currentThread + " is waiting to get a lock another thread is using");
@@ -23,10 +22,9 @@ public class SharedDataState {
         System.out.println(TimeStamp.getTime() +  currentThread + " acquired a lock");
     }
 
-    public synchronized void releaseLock() {
+    public synchronized void releaseLock(String currentThread) {
         accessing = false;
         notifyAll();
-        String currentThread = Thread.currentThread().getName();
         System.out.println(TimeStamp.getTime() +  currentThread + " has released a lock");
     }
 
