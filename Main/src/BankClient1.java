@@ -23,6 +23,8 @@ public class BankClient1{
 
         //Code logic adapted from ActionServer code
         while(communicating){
+            System.out.println(TimeStamp.getTime() + "Choose operation: Add, Subtract, Transfer; amount of money;" +
+                    "if transferring write the number of the client you are transferring to");
             String fromClient = input.readLine();
             if (fromClient != null) {
                 System.out.println(TimeStamp.getTime() +  "Sending message");

@@ -12,6 +12,10 @@ public class SharedDataState {
         ClientAccounts.put("Bank Client 3", 1000);
     }
 
+    /*
+    Professor Simon Taylor
+    acquireLock and releaseLock functions adapted from SharedActionState
+     */
     public synchronized void acquireLock() throws InterruptedException {
         String currentThread = Thread.currentThread().getName();
         System.out.println(TimeStamp.getTime() +  currentThread + " is trying to get a lock");
